@@ -54,7 +54,7 @@ export default function HeroSection() {
   const { main, sub } = clubNames[nameIndex];
 
   return (
-    <section className="relative min-h-[88vh] flex flex-col overflow-x-hidden">
+    <section className="relative min-h-[44vh] md:min-h-[88vh] flex flex-col overflow-x-hidden">
       {/* ── Full-bleed image stack (covers entire hero) ── */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((img, i) => (
