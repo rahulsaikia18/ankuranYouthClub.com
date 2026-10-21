@@ -11,7 +11,7 @@ const heroImages = [
   { src: img2, caption: "Football tournament" },
   { src: img3, caption: "Annual sports day" },
   { src: img4, caption: "Bihu cultural celebration" },
-  { src: img5, caption: "Traditional dress showcase" },
+  { src: img5, caption: "We are in Traditional dress" },
 ];
 
 // Two language versions of the club name
