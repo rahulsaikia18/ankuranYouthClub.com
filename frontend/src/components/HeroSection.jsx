@@ -55,20 +55,8 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[88vh] flex flex-col overflow-x-hidden">
-      {/* ── Orange top strip ── */}
-      <div className="relative z-20 bg-orange-500 text-white text-xs flex items-center justify-between px-4 sm:px-8 lg:px-16 h-9 flex-shrink-0">
-        <div className="flex items-center gap-6 md:gap-10">
-          <span className="font-semibold tracking-wide">Home</span>
-          <span className="hidden sm:inline">Festivals</span>
-          <span className="hidden sm:inline">Service</span>
-        </div>
-        <span className="font-bold tracking-widest uppercase text-xs border border-white px-3 py-1">
-          JOIN NOW
-        </span>
-      </div>
-
       {/* ── Full-bleed image stack (covers entire hero) ── */}
-      <div className="absolute inset-0 top-9 z-0">
+      <div className="absolute inset-0 z-0">
         {heroImages.map((img, i) => (
           <img
             key={i}
@@ -83,7 +71,7 @@ export default function HeroSection() {
 
       {/* ── Smooth left-to-right gradient overlay (text side → transparent) ── */}
       <div
-        className="absolute inset-0 top-9 z-10 pointer-events-none
+        className="absolute inset-0  z-10 pointer-events-none
                       bg-gradient-to-r
                       from-black/80 via-black/50 to-transparent"
       />
