@@ -1,3 +1,5 @@
+import imgIndependence from '../assets/images/independance_day_image.jpg'
+
 const leftEvents = [
   { label: 'Club organizes its annual sports day', href: '#' },
   { label: 'Football team wins district championship', href: '#' },
@@ -17,7 +19,15 @@ export default function EventsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: News/Notices */}
           <div>
-            <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">Latest updates</p>
+            <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">Latest updates</p>
+            {/* Independence Day image banner */}
+            <div className="overflow-hidden rounded-sm h-36 mb-6">
+              <img
+                src={imgIndependence}
+                alt="Independence Day celebration"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <ul className="divide-y divide-gray-100">
               {leftEvents.map((ev, i) => (
                 <li key={i} className="py-4 flex items-center justify-between gap-4 group">

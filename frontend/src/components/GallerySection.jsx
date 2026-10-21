@@ -1,15 +1,27 @@
+import imgFootball2 from '../assets/images/football_tournament_img2.jpg'
+import imgCarom from '../assets/images/carom_sports_image.jpg'
+import imgIndependence from '../assets/images/independance_day_image.jpg'
+import imgKids1 from '../assets/images/kids_with_certificates.jpg'
+import imgKids2 from '../assets/images/kids_with_their_winning_certificates.jpg'
+import imgTribute from '../assets/images/tribute_to_zubeen_garg.jpg'
+import imgSummer from '../assets/images/summer_vacation_free_tution_time.jpg'
+import imgClubBoys from '../assets/images/club_boys.jpg'
+import imgPractice from '../assets/images/practice_time.jpg'
+
+const galleryImages = [
+  { src: imgClubBoys, alt: 'Club boys together' },
+  { src: imgFootball2, alt: 'Football tournament' },
+  { src: imgCarom, alt: 'Carom sports event' },
+  { src: imgIndependence, alt: 'Independence Day celebration' },
+  { src: imgKids1, alt: 'Kids with certificates' },
+  { src: imgKids2, alt: 'Kids with winning certificates' },
+  { src: imgTribute, alt: 'Tribute to Zubeen Garg' },
+  { src: imgSummer, alt: 'Summer vacation free tuition' },
+  { src: imgPractice, alt: 'Practice session' },
+]
+
 // Gallery section: 1 large image on left + 4 grid images on right (desktop)
 // Mobile: all stacked
-
-function ImagePlaceholder({ className = '' }) {
-  return (
-    <div className={`bg-orange-100 flex items-center justify-center ${className}`}>
-      <svg className="w-10 h-10 text-orange-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 18h16.5M3.75 4.5h16.5A1.5 1.5 0 0121.75 6v12a1.5 1.5 0 01-1.5 1.5H3.75A1.5 1.5 0 012.25 18V6a1.5 1.5 0 011.5-1.5z" />
-      </svg>
-    </div>
-  )
-}
 
 export default function GallerySection() {
   return (
@@ -17,10 +29,15 @@ export default function GallerySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-xs text-gray-400 uppercase tracking-widest mb-8">Gallery</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Left: 1 large image with icon badge */}
+        {/* Row 1: 1 large + 4 small grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          {/* Left: 1 large image with camera badge */}
           <div className="relative">
-            <ImagePlaceholder className="w-full h-64 md:h-full min-h-[260px] rounded-sm" />
+            <img
+              src={galleryImages[0].src}
+              alt={galleryImages[0].alt}
+              className="w-full h-64 md:h-full min-h-[260px] rounded-sm object-cover"
+            />
             {/* Camera icon */}
             <div className="absolute top-4 left-4 bg-white rounded-full p-2 shadow">
               <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -32,11 +49,27 @@ export default function GallerySection() {
 
           {/* Right: 2×2 grid */}
           <div className="grid grid-cols-2 gap-4">
-            <ImagePlaceholder className="h-36 md:h-full rounded-sm" />
-            <ImagePlaceholder className="h-36 md:h-full rounded-sm" />
-            <ImagePlaceholder className="h-36 md:h-full rounded-sm" />
-            <ImagePlaceholder className="h-36 md:h-full rounded-sm" />
+            {galleryImages.slice(1, 5).map((img, i) => (
+              <img
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                className="h-36 md:h-full w-full rounded-sm object-cover"
+              />
+            ))}
           </div>
+        </div>
+
+        {/* Row 2: remaining 4 images in a 4-col strip */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {galleryImages.slice(5).map((img, i) => (
+            <img
+              key={i}
+              src={img.src}
+              alt={img.alt}
+              className="h-36 w-full rounded-sm object-cover"
+            />
+          ))}
         </div>
 
         {/* Captions row */}

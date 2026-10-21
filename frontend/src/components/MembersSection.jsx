@@ -1,3 +1,5 @@
+import imgKidsWinning from '../assets/images/kids_with_their_winning_certificates.jpg'
+
 const memberStats = [
   { label: 'Active members', value: 'Present' },
   { label: 'New joiners this year', value: 'Numbers' },
@@ -31,14 +33,23 @@ export default function MembersSection() {
             </a>
           </div>
 
-          {/* Right: Testimonial quote */}
-          <div className="bg-gray-50 p-8 border-l-4 border-orange-500">
-            <blockquote>
-              <p className="text-xl md:text-2xl font-light italic text-gray-700 leading-relaxed">
-                "Because of the club, our children have a ground and a reason to stay in the village."
-              </p>
-              <footer className="mt-4 text-xs text-gray-400">— A local resident</footer>
-            </blockquote>
+          {/* Right: Winning kids image + Testimonial quote */}
+          <div className="flex flex-col gap-6">
+            <div className="overflow-hidden rounded-sm h-52">
+              <img
+                src={imgKidsWinning}
+                alt="Kids with winning certificates"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="bg-gray-50 p-8 border-l-4 border-orange-500">
+              <blockquote>
+                <p className="text-xl md:text-2xl font-light italic text-gray-700 leading-relaxed">
+                  "Because of the club, our children have a ground and a reason to stay in the village."
+                </p>
+                <footer className="mt-4 text-xs text-gray-400">— A local resident</footer>
+              </blockquote>
+            </div>
           </div>
         </div>
       </div>

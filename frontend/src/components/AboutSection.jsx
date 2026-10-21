@@ -1,3 +1,6 @@
+import imgClubBoys from '../assets/images/club_boys.jpg'
+import imgPractice from '../assets/images/practice_time.jpg'
+
 const stats = [
   { value: '52', label: 'Members' },
   { value: '24', label: 'Events held' },
@@ -48,10 +51,8 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 gap-4">
             {/* President */}
             <div className="flex flex-col items-center gap-2">
-              <div className="w-full h-48 bg-orange-100 flex items-center justify-center rounded-sm">
-                <svg className="w-10 h-10 text-orange-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
+              <div className="w-full h-48 rounded-sm overflow-hidden">
+                <img src={imgClubBoys} alt="Club members" className="w-full h-full object-cover" />
               </div>
               <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Full name</p>
               <p className="text-xs text-orange-500 uppercase tracking-wider">PRESIDENT</p>
@@ -59,10 +60,8 @@ export default function AboutSection() {
 
             {/* Vice president */}
             <div className="flex flex-col items-center gap-2 mt-8">
-              <div className="w-full h-48 bg-orange-100 flex items-center justify-center rounded-sm">
-                <svg className="w-10 h-10 text-orange-300" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
+              <div className="w-full h-48 rounded-sm overflow-hidden">
+                <img src={imgPractice} alt="Practice session" className="w-full h-full object-cover" />
               </div>
               <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Full name</p>
               <p className="text-xs text-orange-500 uppercase tracking-wider">VICE PRESIDENT</p>

@@ -20,6 +20,23 @@ body {
   font-family: var(--font-sans);
 }
 
+/* ── Hero name flip animation ── */
+@keyframes flipIn {
+  0%   { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes flipOut {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-18px); }
+}
+
+.hero-name-enter {
+  animation: flipIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-name-exit {
+  animation: flipOut 0.35s ease-in forwards;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
