@@ -1,25 +1,73 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import clubLogo from '../assets/club_logo.png'
 
 const navLinks = [
-  { label: 'Home', href: '#' },
+  { label: 'Home',    href: '#' },
   { label: 'Festivals', href: '#festivals' },
-  { label: 'About', href: '#about' },
+  { label: 'About',   href: '#about' },
   { label: 'Service', href: '#service' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'History', href: '#history' },
   { label: 'Members', href: '#members' },
 ]
 
+const clubNames = [
+  { main: 'Ankuran',  sub: 'Youth Club' },
+  { main: 'আংকুৰণ',  sub: 'যুৱ সংঘ'   },
+]
+
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open,      setOpen]      = useState(false)
+  const [nameIndex, setNameIndex] = useState(0)
+  const [visible,   setVisible]   = useState(true)   // drives fade
+  const timerRef = useRef(null)
+
+  useEffect(() => {
+    const cycle = () => {
+      // fade out
+      setVisible(false)
+      timerRef.current = setTimeout(() => {
+        setNameIndex((p) => (p + 1) % clubNames.length)
+        setVisible(true)          // fade in with new name
+        timerRef.current = setTimeout(cycle, 3000)
+      }, 350)
+    }
+    timerRef.current = setTimeout(cycle, 3000)
+    return () => clearTimeout(timerRef.current)
+  }, [])
+
+  const { main, sub } = clubNames[nameIndex]
 
   return (
     <header className="w-full bg-white sticky top-0 z-50 shadow-sm">
-      {/* Top bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12">
-        <a href="#" className="text-xs font-bold tracking-widest uppercase text-gray-800">
-          ANKURAN
+      {/* ── Main bar ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+
+        {/* Logo + animated club name */}
+        <a href="#" className="flex items-center gap-3 no-underline">
+          <img
+            src={clubLogo}
+            alt="Ankuran Youth Club logo"
+            className="h-12 w-12 object-contain flex-shrink-0"
+          />
+          {/* Animated text */}
+          <div
+            className="flex flex-col leading-tight overflow-hidden"
+            style={{
+              opacity:    visible ? 1 : 0,
+              transform:  visible ? 'translateY(0)' : 'translateY(-8px)',
+              transition: 'opacity 0.35s ease, transform 0.35s ease',
+            }}
+          >
+            <span className="text-lg font-black tracking-tight text-gray-900 leading-none">
+              {main}
+            </span>
+            <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-orange-500 mt-0.5">
+              {sub}
+            </span>
+          </div>
         </a>
+
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
@@ -32,13 +80,15 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
+
         {/* Join CTA */}
         <a
           href="#join"
-          className="hidden md:inline-block bg-orange-500 text-white text-xs font-semibold px-4 py-2 hover:bg-orange-600 transition-colors"
+          className="hidden md:inline-block bg-orange-500 text-white text-xs font-semibold px-5 py-2.5 hover:bg-orange-600 transition-colors"
         >
           JOIN NOW
         </a>
+
         {/* Hamburger */}
         <button
           className="md:hidden flex flex-col gap-1 p-2"
