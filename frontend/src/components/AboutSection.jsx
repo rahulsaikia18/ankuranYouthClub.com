@@ -60,12 +60,16 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 gap-4">
             {/* President */}
             <div className="flex flex-col items-center gap-2">
-              <div className="w-full h-48 rounded-sm overflow-hidden">
-                <img
-                  src={imgClubBoys}
-                  alt="Club members"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative group">
+                {/* Anime-style glowing shadow */}
+                <div className="absolute -inset-3 rounded-lg bg-gradient-to-br from-orange-400 via-orange-500 to-yellow-400 opacity-50 blur-xl group-hover:opacity-75 animate-anime-glow transition-opacity duration-500" />
+                <div className="relative w-full h-48 rounded-sm overflow-hidden ring-2 ring-orange-400/30">
+                  <img
+                    src={imgClubBoys}
+                    alt="Club members"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide">
                 Dijen Bora
@@ -75,14 +79,18 @@ export default function AboutSection() {
               </p>
             </div>
 
-            {/* Vice president */}
+            {/* Secretary */}
             <div className="flex flex-col items-center gap-2 mt-8">
-              <div className="w-full h-48 rounded-sm overflow-hidden">
-                <img
-                  src={imgPractice}
-                  alt="Practice session"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative group">
+                {/* Anime-style glowing shadow */}
+                <div className="absolute -inset-3 rounded-lg bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-500 opacity-50 blur-xl group-hover:opacity-75 animate-anime-glow-alt transition-opacity duration-500" />
+                <div className="relative w-full h-48 rounded-sm overflow-hidden ring-2 ring-indigo-400/30">
+                  <img
+                    src={imgPractice}
+                    alt="Practice session"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               <p className="text-xs font-semibold text-gray-700 uppercase tracking-wide">
                 Omprokas Saikia
