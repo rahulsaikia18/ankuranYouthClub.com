@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import clubLogo from '../assets/club_logo.png'
 
 const footerSections = [
   {
@@ -22,7 +23,7 @@ const footerSections = [
     links: [
       { label: 'Instagram', href: 'https://instagram.com' },
       { label: 'Facebook', href: 'https://facebook.com' },
-      { label: 'Join Now', to: '/#join' },
+      { label: 'Location Map', href: 'https://maps.app.goo.gl/T1LM72npYwgYKdSp6' },
     ],
   },
 ]
@@ -32,13 +33,34 @@ export default function Footer() {
     <footer className="bg-orange-500 text-white">
       {/* CTA Banner */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
-          {/* Left: CTA text */}
-          <div className="text-center md:text-left">
-            <h2 className="text-5xl sm:text-6xl font-black leading-tight">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* Left: Logo, Name & CTA text */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            {/* Club Logo & Title */}
+            <Link to="/" className="flex items-center gap-3 mb-6 no-underline group">
+              <div className="p-2 rounded-xl  group-hover:scale-105 transition-transform">
+                <img
+                  src={clubLogo}
+                  alt="Ankuran Youth Club logo"
+                  className="h-14 w-14 object-contain"
+                />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-2xl font-black tracking-tight text-white leading-none">
+                  Ankuran
+                </span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-orange-200 mt-1">
+                  Youth Club
+                </span>
+              </div>
+            </Link>
+
+            <h2 className="text-4xl sm:text-5xl font-black leading-tight">
               Come and<br />
               <span className="italic font-light">play with us.</span>
             </h2>
+
+            {/* Social Icons */}
             <div className="flex gap-4 mt-6 justify-center md:justify-start">
               <a
                 href="https://instagram.com"
@@ -104,7 +126,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-orange-400 px-6 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 max-w-7xl mx-auto text-xs opacity-70">
         <span>© {new Date().getFullYear()} Ankuran Youth Club. All rights reserved.</span>
-        <span>+91 XXXXX XXXXX</span>
+        <span>Gobindapur Majuli Gaon, Golaghat, Assam</span>
       </div>
     </footer>
   )
