@@ -60,6 +60,15 @@ body {
   animation: marqueeScroll 30s linear infinite;
 }
 
+.topbar-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 22s linear infinite;
+}
+.topbar-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* ── Event slide fade-in ── */
 @keyframes slideFadeIn {
   0%   { opacity: 0; transform: translateX(40px); }

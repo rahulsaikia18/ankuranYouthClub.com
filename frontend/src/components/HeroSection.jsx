@@ -104,7 +104,7 @@ export default function HeroSection() {
              bg-clip-text text-transparent"
               style={{
                 fontFamily: "'Noto Sans Bengali', sans-serif",
-                fontSize: "clamp(3.5rem, 9vw, 6.5rem)",
+                fontSize: "clamp(2.5rem, 8vw, 6.5rem)",
                 paddingBottom: "0.12em",
               }}
             >
@@ -116,7 +116,7 @@ export default function HeroSection() {
               className="font-bold italic mt-2 mb-6
                          bg-gradient-to-r from-orange-400 to-orange-500
                          bg-clip-text text-transparent"
-              style={{ fontSize: "clamp(1.5rem, 4vw, 2.25rem)" }}
+              style={{ fontSize: "clamp(1.2rem, 3.5vw, 2.25rem)" }}
             >
               {sub}
             </h2>
