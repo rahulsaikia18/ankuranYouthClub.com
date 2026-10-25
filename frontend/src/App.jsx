@@ -1,5 +1,7 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import MarqueeStrip from './components/MarqueeStrip'
+import LatestEventCarousel from './components/LatestEventCarousel'
 import AboutSection from './components/AboutSection'
 import ActivitiesSection from './components/ActivitiesSection'
 import EventsSection from './components/EventsSection'
@@ -15,6 +17,8 @@ function App() {
       <Navbar />
       <main>
         <HeroSection />
+        <MarqueeStrip />
+        <LatestEventCarousel />
         <AboutSection />
         <ActivitiesSection />
         <EventsSection />
