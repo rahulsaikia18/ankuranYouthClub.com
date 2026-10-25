@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import clubLogo from '../assets/club_logo.png'
 
 const navLinks = [
-  { label: 'Home',    href: '#' },
-  { label: 'Festivals', href: '#festivals' },
-  { label: 'About',   href: '#about' },
-  { label: 'Service', href: '#service' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'History', href: '#history' },
-  { label: 'Members', href: '#members' },
+  { label: 'Home',      to: '/' },
+  { label: 'Festivals', to: '/festivals' },
+  { label: 'About',     to: '/about' },
+  { label: 'Sports',    to: '/sports' },
+  { label: 'Gallery',   to: '/gallery' },
+  { label: 'Members',   to: '/members' },
 ]
 
 const clubNames = [
@@ -17,11 +17,12 @@ const clubNames = [
 ]
 
 export default function Navbar() {
-  const [open,      setOpen]      = useState(false)
-  const [nameIndex, setNameIndex] = useState(0)
-  const [namePhase, setNamePhase] = useState('enter') // 'enter' | 'exit'
+  const [open,       setOpen]       = useState(false)
+  const [nameIndex,  setNameIndex]  = useState(0)
+  const [namePhase,  setNamePhase]  = useState('enter')
   const [showTopBar, setShowTopBar] = useState(true)
   const nameTimer = useRef(null)
+  const location = useLocation()
 
   // Hide top bar on scroll
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function Navbar() {
         setNameIndex((p) => (p + 1) % clubNames.length)
         setNamePhase('enter')
         nameTimer.current = setTimeout(cycle, 3000)
-      }, 420) // matches flipOut duration
+      }, 420)
     }
     nameTimer.current = setTimeout(cycle, 3000)
     return () => clearTimeout(nameTimer.current)
@@ -60,9 +61,14 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  // Close drawer on route change
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
+
   const { main, sub } = clubNames[nameIndex]
 
-  // Reusable animated name block using the exact same classes as HeroSection
+  // Reusable animated name block
   const AnimatedName = ({ size = 'default' }) => (
     <div
       key={nameIndex}
@@ -101,7 +107,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between text-xs gap-4">
-          {/* Left: Location Pin + Marquee (right to left) */}
+          {/* Left: Location Pin + Marquee */}
           <div className="flex items-center gap-2 overflow-hidden flex-1 min-w-0">
             <div className="flex items-center gap-1 flex-shrink-0 z-10 bg-orange-500 pr-1 font-semibold text-white">
               <svg
@@ -129,11 +135,10 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right: Instagram & Facebook Icons (Increased size) */}
+          {/* Right: Instagram & Facebook Icons */}
           <div className="flex items-center gap-4 flex-shrink-0 z-10 bg-orange-500 pl-2">
-            {/* Instagram */}
             <a
-              href="https://www.instagram.com/ankuronyouthclub/"
+              href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -143,9 +148,8 @@ export default function Navbar() {
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
             </a>
-            {/* Facebook */}
             <a
-              href="https://www.facebook.com/BidyutBikash647"
+              href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -163,36 +167,43 @@ export default function Navbar() {
         {/* ── Main bar ── */}
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-20">
 
-          {/* Logo + animated club name */}
-          <a href="#" className="flex items-center gap-1.5 sm:gap-2 no-underline min-w-0">
+          {/* Logo + animated club name -> links to home */}
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 no-underline min-w-0 group">
             <img
               src={clubLogo}
               alt="Ankuran Youth Club logo"
-              className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 object-contain flex-shrink-0"
+              className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 object-contain flex-shrink-0 group-hover:scale-105 transition-transform"
             />
             <AnimatedName />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-xs text-gray-600 hover:text-orange-500 transition-colors font-medium tracking-wide"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to
+              return (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className={`text-xs transition-colors font-medium tracking-wide ${
+                    isActive
+                      ? 'text-orange-500 font-bold border-b-2 border-orange-500 pb-1'
+                      : 'text-gray-600 hover:text-orange-500'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* Join CTA */}
-          <a
-            href="#join"
+          <Link
+            to="/#join"
             className="hidden md:inline-block bg-orange-500 text-white text-xs font-semibold px-5 py-2.5 hover:bg-orange-600 transition-colors"
           >
             JOIN NOW
-          </a>
+          </Link>
 
           {/* Hamburger */}
           <button
@@ -224,14 +235,14 @@ export default function Navbar() {
       >
         {/* Drawer header: logo + animated name + close */}
         <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100">
-          <div className="flex items-center gap-2">
+          <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
             <img
               src={clubLogo}
               alt="Ankuran Youth Club logo"
               className="h-12 w-12 object-contain flex-shrink-0"
             />
             <AnimatedName size="large" />
-          </div>
+          </Link>
           <button
             onClick={() => setOpen(false)}
             className="p-1.5 rounded-full hover:bg-gray-100 transition-colors"
@@ -246,12 +257,15 @@ export default function Navbar() {
         {/* Nav links */}
         <nav className="flex-1 flex flex-col gap-1 px-4 py-6 overflow-y-auto">
           {navLinks.map((link, i) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.to}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-gray-700
-                         hover:bg-orange-50 hover:text-orange-500 transition-colors"
+              className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors ${
+                location.pathname === link.to
+                  ? 'bg-orange-50 text-orange-500 font-bold'
+                  : 'text-gray-700 hover:bg-orange-50 hover:text-orange-500'
+              }`}
               style={{
                 opacity: open ? 1 : 0,
                 transform: open ? 'translateX(0)' : 'translateX(24px)',
@@ -260,20 +274,20 @@ export default function Navbar() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Bottom CTA */}
         <div className="px-6 pb-8">
-          <a
-            href="#join"
+          <Link
+            to="/#join"
             onClick={() => setOpen(false)}
             className="block w-full bg-orange-500 text-white text-sm font-semibold px-4 py-3
                        text-center rounded-lg hover:bg-orange-600 transition-colors"
           >
             JOIN NOW
-          </a>
+          </Link>
           <p className="text-[0.6rem] text-gray-400 text-center mt-3 tracking-wide">
             © {new Date().getFullYear()} Ankuran Youth Club
           </p>
