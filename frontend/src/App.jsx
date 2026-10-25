@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import TournamentPopup from "./components/TournamentPopup";
 
 import HomePage from "./pages/HomePage";
 import FestivalsPage from "./pages/FestivalsPage";
@@ -32,6 +33,7 @@ function ScrollToTopOnRoute() {
 function App() {
   return (
     <div className="min-h-screen font-sans antialiased text-gray-900 flex flex-col justify-between">
+      <TournamentPopup />
       <ScrollToTopOnRoute />
       <Navbar />
       <main className="flex-1">
