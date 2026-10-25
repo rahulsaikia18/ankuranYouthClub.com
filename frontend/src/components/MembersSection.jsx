@@ -9,10 +9,10 @@ const memberStats = [
 export default function MembersSection() {
   return (
     <section id="members" className="bg-white py-16 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Big stat + member list */}
-          <div>
+          <div className="text-center md:text-left">
             <div className="mb-6">
               <p className="text-7xl font-black text-gray-900">52</p>
               <p className="text-xs text-gray-400 uppercase tracking-widest mt-2">Total members</p>

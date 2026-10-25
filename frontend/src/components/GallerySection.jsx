@@ -26,8 +26,8 @@ const galleryImages = [
 export default function GallerySection() {
   return (
     <section id="gallery" className="bg-white py-16 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs text-gray-400 uppercase tracking-widest mb-8">Gallery</p>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <p className="text-xs text-gray-400 uppercase tracking-widest mb-8 text-center md:text-left">Gallery</p>
 
         {/* Row 1: 1 large + 4 small grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

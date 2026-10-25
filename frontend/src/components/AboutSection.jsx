@@ -10,15 +10,15 @@ const stats = [
 export default function AboutSection() {
   return (
     <section id="about" className="bg-white py-16 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <p className="text-xs text-gray-400 uppercase tracking-widest mb-6 text-center md:text-left">
           About us
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: Large A drop cap + paragraph + stats */}
-          <div>
-            <div className="flex gap-4 items-start mb-6">
+          <div className="text-center md:text-left">
+            <div className="flex gap-4 items-start mb-6 justify-center md:justify-start">
               <p className="text-sm text-gray-600 leading-relaxed mt-1">
                 <span className="text-6xl font-black text-orange-500 leading-none select-none">
                   A
@@ -35,7 +35,7 @@ export default function AboutSection() {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-8 mt-6 mb-8">
+            <div className="flex gap-8 mt-6 mb-8 justify-center md:justify-start">
               {stats.map((stat) => (
                 <div key={stat.label}>
                   <p className="text-4xl font-black text-gray-900">
@@ -49,7 +49,7 @@ export default function AboutSection() {
             </div>
 
             {/* President quote box */}
-            <div className="border border-gray-200 p-5 max-w-xs">
+            <div className="border border-gray-200 p-5 max-w-xs mx-auto md:mx-0">
               <p className="text-lg font-light text-gray-700 leading-snug italic">
                 "One line from the president about why the club exists"
               </p>

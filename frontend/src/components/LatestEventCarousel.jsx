@@ -53,14 +53,14 @@ export default function LatestEventCarousel() {
 
   return (
     <section className="bg-gray-50 py-14 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section heading */}
-        <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">
+        <p className="text-xs text-gray-400 uppercase tracking-widest mb-2 text-center md:text-left">
           Latest Events
         </p>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-          Glimpses from our{" "}
-          <span className="text-orange-500">recent events</span>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center md:text-left">
+          Our{" "}
+          <span className="text-orange-500">recent Activities</span>
         </h2>
 
         {/* Carousel viewport */}

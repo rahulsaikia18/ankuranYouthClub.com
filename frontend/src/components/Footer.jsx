@@ -8,10 +8,10 @@ export default function Footer() {
   return (
     <footer className="bg-orange-500 text-white">
       {/* CTA Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
           {/* Left: CTA text */}
-          <div>
+          <div className="text-center md:text-left">
             <h2 className="text-5xl sm:text-6xl font-black leading-tight">
               Come and<br />
               <span className="italic font-light">play with us.</span>
@@ -44,7 +44,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-orange-400 px-4 sm:px-8 lg:px-16 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 max-w-7xl mx-auto text-xs opacity-70">
+      <div className="border-t border-orange-400 px-6 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 max-w-7xl mx-auto text-xs opacity-70">
         <span>© {new Date().getFullYear()} Ankuran Youth Club. All rights reserved.</span>
         <span>+91 XXXXX XXXXX</span>
       </div>

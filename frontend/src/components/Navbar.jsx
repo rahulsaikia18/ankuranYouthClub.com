@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <header className="w-full bg-white sticky top-0 z-50 shadow-sm">
       {/* ── Main bar ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-20">
 
         {/* Logo + animated club name */}
         <a href="#" className="flex items-center gap-3 no-underline">
@@ -103,7 +103,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 pb-4">
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 pb-4">
           <nav className="flex flex-col gap-3 pt-3">
             {navLinks.map((link) => (
               <a

@@ -84,7 +84,7 @@ export default function HeroSection() {
 
       {/* ── Text content (left half) ── */}
       <div className="relative z-20 flex-1 flex items-center">
-        <div className="w-full md:w-1/2 px-8 sm:px-14 lg:px-20 py-16">
+        <div className="w-full md:w-1/2 px-8 sm:px-14 lg:px-20 py-16 text-center md:text-left">
           <p className="text-xs text-orange-300 uppercase tracking-[0.3em] mb-4 font-medium">
             Welcome to
           </p>
@@ -129,7 +129,7 @@ export default function HeroSection() {
           </p>
 
           {/* Image slide dots */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-center md:justify-start">
             {heroImages.map((_, i) => (
               <button
                 key={i}

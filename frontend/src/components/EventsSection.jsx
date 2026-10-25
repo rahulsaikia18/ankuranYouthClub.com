@@ -15,10 +15,10 @@ const rightEvents = [
 export default function EventsSection() {
   return (
     <section id="festivals" className="bg-white py-16 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: News/Notices */}
-          <div>
+          <div className="text-center md:text-left">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-4">Latest updates</p>
             {/* Independence Day image banner */}
             <div className="overflow-hidden rounded-sm h-36 mb-6">
@@ -42,7 +42,7 @@ export default function EventsSection() {
           </div>
 
           {/* Right: Upcoming & past stats */}
-          <div>
+          <div className="text-center md:text-left">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">At a glance</p>
             <ul className="divide-y divide-gray-100">
               {rightEvents.map((ev, i) => (

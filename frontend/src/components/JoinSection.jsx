@@ -1,10 +1,10 @@
 export default function JoinSection() {
   return (
     <section id="join" className="bg-white py-16 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: QR code placeholder + text */}
-          <div className="flex items-start gap-6">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
             {/* QR placeholder */}
             <div className="w-20 h-20 bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0">
               <svg className="w-10 h-10 text-orange-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ export default function JoinSection() {
           </div>
 
           {/* Right: Location */}
-          <div className="flex flex-col items-start md:items-end gap-3">
+          <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -31,7 +31,7 @@ export default function JoinSection() {
               </svg>
               <span className="text-sm text-gray-700 font-medium">Find us</span>
             </div>
-            <p className="text-sm text-gray-500 text-left md:text-right leading-relaxed">
+            <p className="text-sm text-gray-500 text-center md:text-right leading-relaxed">
               Ankuran Youth Club Ground,<br />
               Village Road, Locality,<br />
               West Bengal, India
