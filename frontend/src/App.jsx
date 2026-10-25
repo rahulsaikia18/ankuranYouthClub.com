@@ -10,6 +10,7 @@ import HistorySection from './components/HistorySection'
 import MembersSection from './components/MembersSection'
 import JoinSection from './components/JoinSection'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <JoinSection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   )
 }
