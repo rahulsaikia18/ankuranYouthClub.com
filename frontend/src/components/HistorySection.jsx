@@ -32,7 +32,7 @@ export default function HistorySection() {
           </div>
 
           {/* Right: Blood group donors */}
-          <div className="text-center md:text-left">
+          {/* <div className="text-center md:text-left">
             <p className="text-xs text-gray-400 uppercase tracking-widest mb-6">Blood donors in the club</p>
             <p className="text-xs text-gray-500 mb-6 leading-relaxed max-w-sm mx-auto md:mx-0">
               Adding one more sentence about it if needed. Our members actively participate in
@@ -46,7 +46,7 @@ export default function HistorySection() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
