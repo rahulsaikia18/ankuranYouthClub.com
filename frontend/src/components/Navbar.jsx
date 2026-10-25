@@ -73,8 +73,8 @@ export default function Navbar() {
       <span
         className={`font-black tracking-tight text-gray-900 leading-none ${
           size === 'large'
-            ? 'text-lg sm:text-xl'
-            : 'text-sm sm:text-base md:text-lg'
+            ? 'text-xl sm:text-2xl'
+            : 'text-lg sm:text-xl md:text-2xl'
         }`}
         style={{ fontFamily: "'Noto Sans Bengali', sans-serif" }}
       >
@@ -83,8 +83,8 @@ export default function Navbar() {
       <span
         className={`font-semibold tracking-widest uppercase text-orange-500 mt-0.5 ${
           size === 'large'
-            ? 'text-[0.65rem] sm:text-xs'
-            : 'text-[0.55rem] sm:text-[0.65rem]'
+            ? 'text-xs sm:text-sm'
+            : 'text-[0.65rem] sm:text-xs'
         }`}
       >
         {sub}
@@ -133,7 +133,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4 flex-shrink-0 z-10 bg-orange-500 pl-2">
             {/* Instagram */}
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ankuronyouthclub/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -145,7 +145,7 @@ export default function Navbar() {
             </a>
             {/* Facebook */}
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/BidyutBikash647"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -164,11 +164,11 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-20">
 
           {/* Logo + animated club name */}
-          <a href="#" className="flex items-center gap-2 sm:gap-3 no-underline min-w-0">
+          <a href="#" className="flex items-center gap-1.5 sm:gap-2 no-underline min-w-0">
             <img
               src={clubLogo}
               alt="Ankuran Youth Club logo"
-              className="h-10 w-10 sm:h-12 sm:w-12 object-contain flex-shrink-0"
+              className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 object-contain flex-shrink-0"
             />
             <AnimatedName />
           </a>
@@ -223,12 +223,12 @@ export default function Navbar() {
         }`}
       >
         {/* Drawer header: logo + animated name + close */}
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100">
+          <div className="flex items-center gap-2">
             <img
               src={clubLogo}
               alt="Ankuran Youth Club logo"
-              className="h-10 w-10 object-contain flex-shrink-0"
+              className="h-12 w-12 object-contain flex-shrink-0"
             />
             <AnimatedName size="large" />
           </div>

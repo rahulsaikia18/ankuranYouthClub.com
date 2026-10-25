@@ -19,8 +19,8 @@ export default function AboutSection() {
           {/* Left: Large A drop cap + paragraph + stats */}
           <div className="text-center md:text-left">
             <div className="flex gap-4 items-start mb-6 justify-center md:justify-start">
-              <p className="text-sm text-gray-600 leading-relaxed mt-1">
-                <span className="text-6xl font-black text-orange-500 leading-none select-none">
+              <p className="text-sm text-gray-600 leading-relaxed mt-1 text-justify">
+                <span className="text-6xl font-black text-orange-500 leading-none select-none float-left mr-2">
                   A
                 </span>
                 nkuran is a social, cultural and community-welfare club formed

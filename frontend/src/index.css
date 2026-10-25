@@ -20,6 +20,12 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Justify all non-hero paragraphs so start and end align cleanly */
+section:not(:first-of-type) p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 /* ── Hero name flip animation ── */
 @keyframes flipIn {
   0%   { opacity: 0; transform: translateY(18px); }

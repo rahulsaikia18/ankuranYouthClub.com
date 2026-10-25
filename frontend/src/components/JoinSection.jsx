@@ -15,7 +15,7 @@ export default function JoinSection() {
             <div>
               <p className="text-xs text-gray-400 uppercase tracking-widest mb-2">Join the club</p>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Help us bring the community together</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-sm text-gray-500 leading-relaxed text-justify">
                 Scan the QR code or fill out the form to become a member of Ankuran Youth Club.
                 Membership is open to all local youth aged 15–35.
               </p>
