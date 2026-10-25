@@ -20,7 +20,7 @@ export default function HomePage() {
       <HistorySection />
       <ActivitiesSection />
       <EventsSection />
-      <GallerySection />
+      <GallerySection isPreview={true} />
       <MembersSection />
       <JoinSection />
     </>
