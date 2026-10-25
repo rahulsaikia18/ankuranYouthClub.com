@@ -45,9 +45,9 @@ export default function MembersSection() {
             <div className="bg-gray-50 p-8 border-l-4 border-orange-500">
               <blockquote>
                 <p className="text-xl md:text-2xl font-light italic text-gray-700 leading-relaxed">
-                  "Because of the club, our children have a ground and a reason to stay in the village."
+                  "When the youth stand together in unity and discipline, there is no limit to what our community can achieve."
                 </p>
-                <footer className="mt-4 text-xs text-gray-400">— A local resident</footer>
+                <footer className="mt-4 text-xs text-gray-400">— Club Patron &amp; Well-wisher</footer>
               </blockquote>
             </div>
           </div>
