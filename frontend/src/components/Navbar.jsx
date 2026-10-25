@@ -19,21 +19,21 @@ const clubNames = [
 export default function Navbar() {
   const [open,      setOpen]      = useState(false)
   const [nameIndex, setNameIndex] = useState(0)
-  const [visible,   setVisible]   = useState(true)   // drives fade
-  const timerRef = useRef(null)
+  const [namePhase, setNamePhase] = useState('enter') // 'enter' | 'exit'
+  const nameTimer = useRef(null)
 
+  // Exactly identical to HeroSection animation cycle
   useEffect(() => {
     const cycle = () => {
-      // fade out
-      setVisible(false)
-      timerRef.current = setTimeout(() => {
+      setNamePhase('exit')
+      nameTimer.current = setTimeout(() => {
         setNameIndex((p) => (p + 1) % clubNames.length)
-        setVisible(true)          // fade in with new name
-        timerRef.current = setTimeout(cycle, 3000)
-      }, 350)
+        setNamePhase('enter')
+        nameTimer.current = setTimeout(cycle, 3000)
+      }, 420) // matches flipOut duration
     }
-    timerRef.current = setTimeout(cycle, 3000)
-    return () => clearTimeout(timerRef.current)
+    nameTimer.current = setTimeout(cycle, 3000)
+    return () => clearTimeout(nameTimer.current)
   }, [])
 
   // Lock body scroll when drawer is open
@@ -48,24 +48,27 @@ export default function Navbar() {
 
   const { main, sub } = clubNames[nameIndex]
 
-  // Reusable animated name block
+  // Reusable animated name block using the exact same classes as HeroSection
   const AnimatedName = ({ size = 'default' }) => (
     <div
-      className="flex flex-col leading-tight overflow-hidden"
-      style={{
-        opacity:    visible ? 1 : 0,
-        transform:  visible ? 'translateY(0)' : 'translateY(-8px)',
-        transition: 'opacity 0.35s ease, transform 0.35s ease',
-      }}
+      key={nameIndex}
+      className={`flex flex-col leading-tight select-none ${
+        namePhase === 'enter' ? 'hero-name-enter' : 'hero-name-exit'
+      }`}
     >
-      <span className={`font-black tracking-tight text-gray-900 leading-none ${
-        size === 'large' ? 'text-xl' : 'text-lg'
-      }`}>
+      <span
+        className={`font-black tracking-tight text-gray-900 leading-none ${
+          size === 'large' ? 'text-xl' : 'text-lg'
+        }`}
+        style={{ fontFamily: "'Noto Sans Bengali', sans-serif" }}
+      >
         {main}
       </span>
-      <span className={`font-semibold tracking-widest uppercase text-orange-500 mt-0.5 ${
-        size === 'large' ? 'text-xs' : 'text-[0.65rem]'
-      }`}>
+      <span
+        className={`font-semibold tracking-widest uppercase text-orange-500 mt-0.5 ${
+          size === 'large' ? 'text-xs' : 'text-[0.65rem]'
+        }`}
+      >
         {sub}
       </span>
     </div>

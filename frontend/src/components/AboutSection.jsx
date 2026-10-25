@@ -51,7 +51,7 @@ export default function AboutSection() {
             {/* President quote box */}
             <div className="border border-gray-200 p-5 max-w-xs mx-auto md:mx-0">
               <p className="text-lg font-light text-gray-700 leading-snug italic">
-                "One line from the president about why the club exists"
+                "Because of the club, our children have a ground and a reason to stay in the village."
               </p>
             </div>
           </div>
